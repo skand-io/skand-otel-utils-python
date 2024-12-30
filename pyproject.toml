@@ -31,7 +31,7 @@ dependencies = [
   "opentelemetry-instrumentation-urllib==0.46b0",
   "opentelemetry-instrumentation-urllib3==0.46b0",
   "opentelemetry-proto==1.25.0",
-  "opentelemetry-semantic-conventions==0.46b0",
+  "opentelemetry-semantic-conventions==0.50b0",
 ]
 
 [tool.uv]
