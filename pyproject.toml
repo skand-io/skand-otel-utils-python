@@ -1,0 +1,48 @@
+[project]
+name = "skand_otel_utils"
+version = "0.1.0"
+description = "Otel utils for Skand"
+
+authors = [{ name = "Tony Yang", email = "tonyyang@skand.io" }]
+maintainers = [{ name = "Tony Yang", email = "tonyyang@skand.io" }]
+
+requires-python = ">=3.8"
+readme = "README.md"
+dependencies = [
+  "dapr==1.13.0",
+  "dapr-ext-grpc==1.12.0",
+  "cloudevents>=1.11.0",
+  "opentelemetry-sdk==1.25.0",
+  "opentelemetry-api==1.25.0",
+  "opentelemetry-distro==0.46b0",
+  "opentelemetry-exporter-otlp==1.25.0",
+  "opentelemetry-exporter-otlp-proto-common==1.25.0",
+  "opentelemetry-exporter-otlp-proto-grpc==1.25.0",
+  "opentelemetry-exporter-otlp-proto-http==1.25.0",
+  "opentelemetry-instrumentation==0.46b0",
+  "opentelemetry-instrumentation-aiohttp-client==0.46b0",
+  "opentelemetry-instrumentation-asgi==0.46b0",
+  "opentelemetry-instrumentation-asyncio==0.46b0",
+  "opentelemetry-instrumentation-botocore==0.46b0",
+  "opentelemetry-instrumentation-logging==0.46b0",
+  "opentelemetry-instrumentation-requests==0.46b0",
+  "opentelemetry-instrumentation-system-metrics==0.46b0",
+  "opentelemetry-instrumentation-threading==0.46b0",
+  "opentelemetry-instrumentation-urllib==0.46b0",
+  "opentelemetry-instrumentation-urllib3==0.46b0",
+  "opentelemetry-proto==1.25.0",
+  "opentelemetry-semantic-conventions==0.46b0",
+]
+
+[tool.uv]
+dev-dependencies = [
+  "pre-commit<=3.8.0",
+  "pyopenssl==22.1.0",
+  "pyright>=1.1.389",
+  "pytest>=8.3.3",
+  "ruff>=0.8.0",
+]
+
+[build-system]
+requires = ["setuptools>=42"]
+build-backend = "setuptools.build_meta"
