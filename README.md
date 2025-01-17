@@ -10,14 +10,13 @@ This can enhance your CloudEvent handler with the OpenTelemetry utils
 from cloudevents.sdk.event import v1
 from dapr.clients.grpc._response import TopicEventResponse
 from dapr.ext.grpc import App
-from skand_otel_utils import publishers
-from skand_otel_utils.cloudevents.decorators import setup_distributed_trace_context, trace_span
+from skand_otel_utils.cloudevents.decorators import distributed_trace_context, trace_span
 
 app = App()
 
 
 @app.subscribe(pubsub_name="YOUR_PUBSUB_NAME" ,topic="YOUR_TOPIC")
-@setup_distributed_trace_context()
+@distributed_trace_context.setup()
 @trace_span.set_span_event_from_event(name="event payload", event_extractor=trace_span.extract_payload_from_cloudevent)
 @trace_span.set_span_status_from_cloudenvet_handler_result
 def handler(event: v1.Event) -> TopicEventResponse:

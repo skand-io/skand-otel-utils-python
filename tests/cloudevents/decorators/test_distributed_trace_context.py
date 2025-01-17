@@ -8,11 +8,11 @@ from cloudevents.sdk.event import v1
 from opentelemetry import context, trace
 from opentelemetry.trace import span
 
-from skand_otel_utils.cloudevents.decorators.setup_distributed_trace_context import (
+from skand_otel_utils.cloudevents.decorators.distributed_trace_context import (
     TraceparentExtractor,
     _attach_distributed_trace_context,
     _extract_trace_context_from_traceparent,
-    setup_distributed_trace_context,
+    setup,
 )
 from tests.testutils import (
     CloudEventBuilder,
@@ -328,7 +328,7 @@ class TestSetupDistributedTraceContext:
         setup_cloudevent_with_traceparent: Callable[[str], v1.Event],
     ) -> None:
         # setup
-        @setup_distributed_trace_context(pipelines)
+        @setup(pipelines)
         def cloudevent_handler(_: v1.Event) -> trace.SpanContext:
             return trace.get_current_span().get_span_context()
 
@@ -359,7 +359,7 @@ class TestSetupDistributedTraceContext:
         self, pipelines: tuple[Callable[[v1.Event], str | None], ...]
     ) -> None:
         # setup
-        @setup_distributed_trace_context(pipelines)
+        @setup(pipelines)
         def cloudevent_handler(_: v1.Event) -> trace.SpanContext:
             return trace.get_current_span().get_span_context()
 
