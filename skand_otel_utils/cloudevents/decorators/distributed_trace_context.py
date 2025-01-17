@@ -75,7 +75,7 @@ def _attach_distributed_trace_context(trace_context: trace.Context) -> object | 
     return None
 
 
-def setup_distributed_trace_context(
+def setup(
     pipelines: Sequence[CloudEventHandler] | None = None,
 ) -> Callable[[CloudEventHandler], CloudEventHandler]:
     """Configure traceparent extraction pipelines.
